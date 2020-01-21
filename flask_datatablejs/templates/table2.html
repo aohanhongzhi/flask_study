@@ -1,0 +1,57 @@
+<html>
+
+<head>
+    <link href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css" />
+    <!-- <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script> -->
+    <!-- <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script> -->
+    <!-- <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script> -->
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+    <!-- <script src="http://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script> -->
+
+    <!-- ZUI 标准版压缩后的 CSS 文件 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/zui/1.9.1/css/zui.min.css">
+    <!-- ZUI Javascript 依赖 jQuery -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/zui/1.9.1/lib/jquery/jquery.js"></script> -->
+    <!-- ZUI 标准版压缩后的 JavaScript 文件 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/zui/1.9.1/js/zui.min.js"></script>
+    <script>
+        /*
+            搞定分页加载，搜索，ajax请求后端数据
+        */
+        $(document).ready(function () {
+            var dataSet = [['1', 'eric', '15', 'f'], ['2', 'zh', '54', 'f']]
+            $('#myTable').DataTable({
+                // data: dataSet,
+                "ajax": "/json",
+                dataSrc: 'data',
+                columns: [
+                    { title: "Name" },
+                    { title: "Position" },
+                    { title: "Office" },
+                    { title: "Extn." },
+                ]
+            });
+        });
+       
+    </script>
+</head>
+
+<body>
+    <table id="myTable" class="display" style="width:100%">
+        <thead>
+            <th>#</th>
+            <th>姓名</th>
+            <th>年龄</th>
+            <th>性别</th>
+        </thead>
+        <tbody>
+            <tr></tr>
+            <tr></tr>
+            <tr></tr>
+            <tr></tr>
+        </tbody>
+    </table>
+</body>
+
+</html>

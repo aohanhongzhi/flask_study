@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"> 
+<title>菜鸟教程(runoob.com)</title> 
+<script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js">
+</script>
+<script>
+$(document).ready(function(){
+  $("p").click(function(){
+    $(this).hide();
+  });
+  var payUrl = "/jsono"
+  $.ajax({
+    url: payUrl,    //请求的url地址
+                // dataType: "json",   //返回格式为json
+                async: false,//请求是否异步，默认为异步，这也是ajax重要特性
+                data: {},  //参数值
+                type: "GET", //请求方式
+                beforeSend: function () {
+                    //请求前的处理
+                },
+                success: function (data) {
+                    //如果是电脑显示支付码
+                     console.log("支付申请成功后返回的数据" + JSON.stringify(data))
+
+                     $("#role").html(JSON.stringify(data.data[1].name))
+                 
+                },
+                complete: function (data) {
+                    //请求完成的处理
+                    console.log("处理完成" + JSON.stringify(data))
+
+                },
+                error: function () {
+                    //请求出错处理
+                }
+  })
+    
+
+
+});
+</script>
+</head>
+<body>
+
+  <div id ="role"></div>
+<p>如果你点我，我就会消失。</p>
+<p>继续点我!</p>
+<p>接着点我!</p>
+</body>
+</html>
